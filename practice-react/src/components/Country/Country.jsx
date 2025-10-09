@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './Country.css'
 
-const Country = ({ country }) => {
+const Country = ({ country, handleVisitedCountries }) => {
 
-  console.log(country)
+  // console.log(country)
   const getCountryLabel = (area, population) => {
   if (area < 10000 && population < 1000000) return "Tiny country & Small population";
   if (area < 10000 && population >= 1000000) return "Tiny country & Large population";
@@ -21,7 +21,8 @@ const Country = ({ country }) => {
   const [visited,setVisited]=useState(false);
 
   const handleClick = () => {
-    setVisited(!visited); 
+    setVisited(!visited);
+    handleVisitedCountries(country);
   }
 
   const countryName = country.name;
